@@ -1,0 +1,30 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "functions": {
+    "pages/api/**/*.js": {
+      "includeFiles": "lib/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
+    "GOOGLE_OAUTH_CLIENT_ID": "@google_oauth_client_id",
+    "GOOGLE_OAUTH_CLIENT_SECRET": "@google_oauth_client_secret",
+    "APPLE_OAUTH_CLIENT_ID": "@apple_oauth_client_id",
+    "APPLE_OAUTH_CLIENT_SECRET": "@apple_oauth_client_secret",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "NEXTAUTH_URL": "@nextauth_url"
+  }
+}
